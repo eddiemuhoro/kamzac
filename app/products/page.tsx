@@ -22,7 +22,7 @@ const Products =  async () => {
           <section className="flex flex-wrap">
 
               {products.map((product) => (
-                <Link href={`/products/${product.id}`} key={product.id} className="w-1/4 p-1">
+                <Link href={`/products/${product.id}`} key={product.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-1">
                  
                       <div className="w-full"> {/* Set the container dimensions */}
                           <Image
