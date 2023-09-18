@@ -18,7 +18,7 @@ const Products =  async () => {
     const products: Product[] = await res.json()   
   
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8 px-8">
       <h1 className="text-3xl font-bold mb-4">Products for Sale</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {products.map((product) => (
