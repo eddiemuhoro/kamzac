@@ -30,13 +30,13 @@ const Sidebar: FC<SidebarProps> = ({isOpen, toggle}) => {
       </button>
 
       <ul className="sidebar-nav text-center leading-relaxed text-xl">
-        <li>
+        <li className='hover:text-gray-600'>
           <Link href="/about" onClick={toggle}><p>About Us</p></Link>
         </li>
-        <li>
+        <li className='hover:text-gray-600'>
           <Link href="/services" onClick={toggle}><p>Services</p></Link>
         </li>
-        <li>
+        <li className='hover:text-gray-600'>
           <Link href="/contacts" onClick={toggle}><p>Contacts</p></Link>
         </li>
       </ul>
