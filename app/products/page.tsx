@@ -14,37 +14,33 @@ interface Product {
 const Products =  async () => {
     //fetch products
    const res = await fetch('https://fakestoreapi.com/products')
+   await new Promise(resolve => setTimeout(resolve, 2000))
     const products: Product[] = await res.json()   
   
   return (
-      <>
-          <div>Products</div>
-          <section className="flex flex-wrap">
-
-              {products.map((product) => (
-                <Link href={`/products/${product.id}`} key={product.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-1">
-                 
-                      <div className="w-full"> {/* Set the container dimensions */}
-                          <Image
-                              src={product.image}
-                              alt="Picture of the author"
-                              width={230}
-                              height={208}
-                             layout='responsive'
-                             objectFit='cover'
-                          />
-                      </div>
-
-                      <h3>{product.title}</h3>
-                      <p>{product.price}</p>
-
-                      <AddButton id={product.id} />
-                 
-                </Link>
-              ))}
-
-          </section>
-      </>
+    <div className="container mx-auto py-8">
+      <h1 className="text-3xl font-bold mb-4">Products for Sale</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {products.map((product) => (
+          <Link href={`/products/${product.id}`} key={product.id} className="block rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] transition-transform transform hover:scale-105 hover:shadow-lg">
+            
+              <div className="relative h-40">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
+                <p className="text-gray-600">${product.price.toFixed(2)}</p>
+              </div>
+            
+          </Link>
+        ))}
+      </div>
+    </div>
 
   )
 }
