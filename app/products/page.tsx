@@ -24,15 +24,15 @@ function truncateTitle(title: string, maxWords: number): string {
 const Products =  async () => {
     //fetch products
    const res = await fetch('https://fakestoreapi.com/products')
-   await new Promise(resolve => setTimeout(resolve, 2000))
+  //  await new Promise(resolve => setTimeout(resolve, 2000))
     const products: Product[] = await res.json()   
   
   return (
-    <div className="container mx-auto py-8 px-8 bg-slate-100">
+    <div className="container mx-auto  px-8 bg-slate-100 dark:bg-transparent">
       <h1 className="text-3xl font-bold mb-4">Clothing</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {products.map((product) => (
-          <Link href={`/products/${product.id}`} key={product.id} className="block rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] transition-transform transform hover:scale-105 hover:shadow-lg bg-white">
+          <Link href={`/products/${product.id}`} key={product.id} className="block rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] transition-transform transform  hover:shadow-lg hover:border-1 hover:border-customBlue  bg-white dark:bg-black p-4 ">
             
               <div className="relative h-40">
                 <Image
@@ -40,6 +40,7 @@ const Products =  async () => {
                   alt={product.title}
                   layout="fill"
                   objectFit="contain"
+                  className='hover:scale-105 transition-transform duration-200' 
                 />
               </div>
               <div className="p-4">

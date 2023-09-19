@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google'
 import { Suspense } from 'react'
 import Navbar from './components/navigation/navbar'
 import Navigation from './components/navigation'
+import { ThemeProvider } from './theme-provider'
+import { ThemeSwitcher } from './components/navigation/navbar/Button'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +21,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={inter.className} suppressHydrationWarning={true}>
+      <body className={`${inter.className} bg-slate-50 dark:bg-[#171717] `}  suppressHydrationWarning={true}>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+     
         <Suspense fallback={<div>Loading...</div>}>
           <Navigation />
         {children}
         </Suspense>
+      </ThemeProvider>
       </body>
     </html>
   )
