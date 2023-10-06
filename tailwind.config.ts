@@ -15,7 +15,11 @@ const config: Config = {
       },
       colors: {
         customBlue: '#2563EB',
+        paragraphDark: '#4B5563',
+        paragraphLight: '#6B7280',
+        title: '#1F2937',
       },
+
     },
   },
   darkMode: ["class"],
