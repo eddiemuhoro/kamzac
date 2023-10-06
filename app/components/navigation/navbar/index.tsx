@@ -15,7 +15,7 @@ const Navbar: FC<NavbarProps> = ({ toggle }) => {
     <div className="flex justify-between items-center h-full">
       <Logo />
       <div className="flex items-center">
-        <ul className="hidden md:flex gap-x-6 text-white">
+        <ul className="hidden md:flex gap-x-6 ">
           <li>
             <Link href="/about">
               <p>About Us</p>
