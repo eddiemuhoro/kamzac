@@ -6,13 +6,11 @@ import '@aws-amplify/ui-react/styles.css';
 
 export default function Home() {
   return (
-    <Authenticator>
-      {({ signOut, user }) => (
+   
 
     <main className="flex min-h-screen flex-col items-center ">     
       <Products />
     </main>
-      )}
-    </Authenticator>
+  
   )
 }
