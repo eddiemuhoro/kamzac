@@ -6,28 +6,28 @@ const RegisterForm = () => {
   const router = useRouter();
     const handleRegister = async (e: any) => {
         e.preventDefault();
-        const name: string =  e.target.email.value;
-        const email: string = e.target.email.value;
-        const password: string =  e.target.email.value;
+        // const name: string =  e.target.email.value;
+        // const email: string = e.target.email.value;
+        // const password: string =  e.target.email.value;
 
-        const res = await fetch('https://usella.fly.dev/register', {
-          body: JSON.stringify({
-            name: e.target.name.value,
-            email: email,
-            password: e.target.password.value,
-            // phoneNumber: e.target.phoneNumber.value,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          method: 'POST',
-        });
-        const result = await res.json();
-        console.log(email);
-        localStorage.setItem('email', email)
+        // const res = await fetch('https://usella.fly.dev/register', {
+        //   body: JSON.stringify({
+        //     name: e.target.name.value,
+        //     email: email,
+        //     password: e.target.password.value,
+        //     // phoneNumber: e.target.phoneNumber.value,
+        //   }),
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        //   method: 'POST',
+        // });
+        // const result = await res.json();
+        // console.log(email);
+        // localStorage.setItem('email', email)
         
-        router.push(`/register/verify`)
-        alert('You have successfully registered!, check email');
+        router.push(`/products`)
+      
       };
     
   return (
