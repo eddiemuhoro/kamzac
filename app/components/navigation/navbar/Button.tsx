@@ -20,7 +20,7 @@ export const ThemeSwitcher = () => {
 
   return (
     <button
-      className={`w-fit absolute right-0 top-0 p-2 rounded-md hover:scale-110 active:scale-100 duration-200 bg-slate-200 dark:bg-[#212933]`}
+      className={`w-fit fixed right-0 bottom-0 p-2 rounded-md  active:scale-100 duration-200 bg-slate-200 dark:bg-[#212933]`}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "light" ? <BsFillMoonFill color='black' /> : <BsFillSunFill />}

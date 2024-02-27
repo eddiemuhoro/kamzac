@@ -2,12 +2,14 @@ import React, { FC } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
 import { ThemeSwitcher } from "./Button";
+import { useTheme } from "next-themes";
 
 interface NavbarProps {
   toggle: () => void;
 }
 
 const Navbar: FC<NavbarProps> = ({ toggle }) => {
+  const { theme } = useTheme();
   return (
     <>
       <div className="w-full h-20 sticky top-0 z-10 backdrop-blur-md bg-opacity-50 ">
@@ -31,7 +33,7 @@ const Navbar: FC<NavbarProps> = ({ toggle }) => {
               <p>Contacts</p>
             </Link>
           </li>
-          <ThemeSwitcher />
+          {/* <ThemeSwitcher /> */}
         </ul>
 
         <button type="button" className="inline-flex items-center md:hidden"
@@ -41,7 +43,7 @@ const Navbar: FC<NavbarProps> = ({ toggle }) => {
             width="40"
             height="40"
             viewBox="0 0 24 24">
-            <path fill="#fff"
+            <path fill= {theme === "light" ? "black" : "white"}
               d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z" />
           </svg>
         </button>

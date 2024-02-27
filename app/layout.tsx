@@ -27,6 +27,8 @@ export default function RootLayout({
         <Suspense fallback={<div>Loading...</div>}>
           <Navigation />
         {children}
+        <ThemeSwitcher />
+
         </Suspense>
       </ThemeProvider>
       </body>

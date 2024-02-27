@@ -9,11 +9,11 @@ interface SidebarProps {
 const Sidebar: FC<SidebarProps> = ({isOpen, toggle}) => {
   return (
     <div className="sidebar-container fixed w-full h-full overflow-hidden 
-   justify-center bg-white grid pt-[120px] left-0 z-10"
+   justify-center bg-white dark:bg-black grid pt-[120px] left-0 z-10"
   style={{ opacity: `${isOpen ? "1" : "0"}`, 
       top: ` ${isOpen ? "0" : "-100%"}`}}>
     <div
-      className="sidebar-container fixed w-full h-full overflow-hidden justify-center bg-white grid pt-[120px] left-0 z-10"
+      className="sidebar-container fixed w-full h-full overflow-hidden justify-center bg-white dark:bg-black grid pt-[120px] left-0 z-10"
       style={{
         opacity: `${isOpen ? "1" : "0"}`,
         top: ` ${isOpen ? "0" : "-100%"}`,
@@ -31,13 +31,13 @@ const Sidebar: FC<SidebarProps> = ({isOpen, toggle}) => {
 
       <ul className="sidebar-nav text-center leading-relaxed text-xl">
         <li className='hover:text-gray-600'>
-          <Link href="/about" onClick={toggle}><p>About Us</p></Link>
+          <Link href="/" onClick={toggle}><p>About Us</p></Link>
         </li>
         <li className='hover:text-gray-600'>
-          <Link href="/services" onClick={toggle}><p>Services</p></Link>
+          <Link href="/" onClick={toggle}><p>Services</p></Link>
         </li>
         <li className='hover:text-gray-600'>
-          <Link href="/contacts" onClick={toggle}><p>Contacts</p></Link>
+          <Link href="/" onClick={toggle}><p>Contacts</p></Link>
         </li>
       </ul>
     </div>
