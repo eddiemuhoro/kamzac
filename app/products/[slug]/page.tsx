@@ -4,20 +4,43 @@ import { FC } from 'react'
 import ProductImage from './Image'
 import BuyButton from './BuyButton'
 
-interface pageProps {
-  params: { id: string }
+export async function generateStaticParams() {
+  const posts = await fetch('https://fakestoreapi.com/products').then((res) => res.json())
+ 
+  return posts.map((post: any) => ({
+    slug: post.id.toString(),
+  }))
 }
 
 
-const ProductDetails: FC<pageProps> = async ({ params }) => {
+async function getProducts(id: string) {
+  const product = await fetch("https://fakestoreapi.com/products/" + id)  
+  if(!product) {
+    throw new Error("Error fetching products")
+  }
+console.log(product)
+  return await product.json()
+}
+
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  }
+}
 
 
-  const res = await fetch(`https://fakestoreapi.com/products/${params.id}`)
-
-  const product = await res.json()
 
 
+const ProductDetails = async  ({ params }: { params: any }) => {
 
+const product: Product = await getProducts(params?.slug)
 
   return (
     <div className="container mx-auto  p-8 bg-slate-100 dark:bg-transparent">
@@ -37,7 +60,7 @@ const ProductDetails: FC<pageProps> = async ({ params }) => {
               </ul>
             </div>
           </div>
-          <BuyButton productId={product.id} />
+          {/* <BuyButton productId={product.id} /> */}
 
         </div>
       </div>
